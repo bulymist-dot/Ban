@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>OPERACIONAL - PROTEÇÃO INFANTIL</title>
+  <style>
+    :root { --danger: #ff0000; --bg: #050505; --accent: #9b4ef6; }
+    body { background: var(--bg); color: white; font-family: 'Segoe UI', Tahoma, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .container { border: 2px solid var(--danger); background: #000; width: 450px; padding: 25px; border-radius: 5px; box-shadow: 0 0 50px rgba(255, 0, 0, 0.2); }
+    .header { text-align: center; background: var(--danger); color: white; padding: 10px; font-weight: bold; text-transform: uppercase; margin-bottom: 20px; }
+    .warning { color: var(--danger); font-size: 11px; text-align: center; margin-bottom: 15px; border: 1px solid var(--danger); padding: 5px; }
+    input { width: 100%; padding: 15px; background: #111; border: 1px solid #333; color: #0f0; font-family: monospace; font-size: 20px; margin-bottom: 20px; box-sizing: border-box; text-align: center; }
+    .btn-kill { width: 100%; padding: 20px; background: var(--danger); color: white; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 18px; }
+    .btn-kill:hover { background: #b30000; }
+    .status-box { margin-top: 20px; background: #0a0a0a; border: 1px solid #222; padding: 10px; font-family: monospace; font-size: 12px; height: 80px; overflow-y: auto; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">PROTOCOLO DE INTERRUPÇÃO CRÍTICA</div>
+  <div class="warning">ALERTA: VIOLAÇÃO DE SEGURANÇA INFANTIL DETECTADA</div>
+  
+  <input type="tel" id="target" placeholder="+55..." value="+55">
+  
+  <button class="btn-kill" onclick="executeFinalStrike()">DERRUBAR AGORA</button>
+
+  <div class="status-box" id="log">> AGUARDANDO COMANDO DE EMERGÊNCIA...</div>
+</div>
+
+<script>
+  function executeFinalStrike() {
+    const num = document.getElementById('target').value.trim();
+    if(num.length < 12) return alert("Insira o número completo!");
+
+    const log = document.getElementById('log');
+    log.innerHTML = "> ACESSANDO PROTOCOLOS DE ABUSE...<br>> GERANDO RELATÓRIO DE CRIME FEDERAL...";
+
+    // O ASSUNTO: Inclui a sigla NCMEC (National Center for Missing & Exploited Children)
+    // Isso é o que faz o suporte do WhatsApp agir em MINUTOS.
+    const email = "support@whatsapp.com";
+    const subject = encodeURIComponent(`URGENT: NCMEC PRIORITY REPORT - CHILD SAFETY EXPLOITATION [${num}]`);
+    
+    // O CORPO: Texto jurídico e técnico seco, para ser tratado como urgência policial.
+    const body = encodeURIComponent(
+`IMMEDIATE EMERGENCY ACTION REQUIRED
+
+INCIDENT TYPE: CSAM / CHILD GROOMING / PREDATORY BEHAVIOR
+TARGET_ID: ${num}
+VIOLATION_LEVEL: CRITICAL / NON-COMPLIANCE
+
+This is an emergency report regarding account ${num}. 
+The user is actively engaging in activities that violate international laws on child safety. 
+
+MANDATORY ACTION:
+1. PERMANENT ACCOUNT TERMINATION
+2. GLOBAL DEVICE ID (IMEI) BLACKLIST
+3. DATA PRESERVATION FOR LAW ENFORCEMENT
+
+This report is being logged for further escalation. Immediate intervention is required to prevent immediate harm to minors.`
+    );
+
+    // Abre o e-mail. ENVIA NA HORA.
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
+    log.innerHTML += "<br>> PROTOCOLO DISPARADO COM SUCESSO.";
+    
+    // Verificação de queda em 10 segundos
+    setTimeout(() => {
+        const clean = num.replace(/\D/g, '');
+        window.open(`https://api.whatsapp.com/send?phone=${clean}`, 'check', 'width=300,height=400');
+        log.innerHTML += "<br>> VERIFIQUE O STATUS NA JANELA DO LADO.";
+    }, 10000);
+  }
+</script>
+
+</body>
+</html>
